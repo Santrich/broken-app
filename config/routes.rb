@@ -10,5 +10,5 @@ FacebookLite::Application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: :logout
   resource :session, only: [:new, :create, :destroy]
 
-  root 'welcome#home'
+  root 'welcome#index'
 end
