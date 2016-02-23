@@ -19,6 +19,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
       redirect_to root_path, notice: 'Post successfully updated'
     else
@@ -34,7 +35,8 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = current_user.posts.find(params[:post_id])
+    #@post = current_user.posts.find(params[:post_id])
+    @post = current_user.posts.find(params[:id])
   end
 
   def post_params

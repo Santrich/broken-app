@@ -7,7 +7,11 @@ class SessionsController < ApplicationController
 
   def create
     #@user = User.find_by(email: session_params[:email])
-    if @user = login(session_params[:email], session_params[:password])
+
+    if @user == login(session_params[:email], session_params[:password])
+      #@user = User.find_by(session_params[:email], session_params[:password])
+      @user = User.find_by(email: session_params[:email])
+      auto_login @user
       redirect_to :root, notice: "Welcome #{@user.name}"
     else
       flash[:alert] = 'Nope!'
