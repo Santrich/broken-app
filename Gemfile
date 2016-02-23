@@ -23,4 +23,5 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'rspec-instafail'
   gem 'database_cleaner'
+  gem 'pry-byebug'
 end

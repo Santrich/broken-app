@@ -6,12 +6,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    #@user = User.find_by(email: session_params[:email])
-
-    if @user == login(session_params[:email], session_params[:password])
-      #@user = User.find_by(session_params[:email], session_params[:password])
-      @user = User.find_by(email: session_params[:email])
-      auto_login @user
+    #binding.pry
+    if @user = login(session_params[:email], session_params[:password])
+      #binding.pry
       redirect_to :root, notice: "Welcome #{@user.name}"
     else
       flash[:alert] = 'Nope!'
@@ -27,6 +24,6 @@ class SessionsController < ApplicationController
   protected
 
   def session_params
-    params.require(:session).permit(:email)
+    params.require(:session).permit(:email,:password)
   end
 end
