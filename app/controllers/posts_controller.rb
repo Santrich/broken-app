@@ -36,7 +36,14 @@ class PostsController < ApplicationController
 
   def set_post
     #@post = current_user.posts.find(params[:post_id])
-    @post = current_user.posts.find(params[:id])
+    #@post = current_user.posts.find(params[:post_id])
+    #binding.pry
+    if current_user.posts.exists?(params[:id])
+      @post = current_user.posts.find(params[:id])
+    else
+      flash[:alert] = 'Not allowed!'
+      #render 'edit'
+    end
   end
 
   def post_params
