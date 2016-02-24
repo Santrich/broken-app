@@ -27,6 +27,18 @@ class UsersController < ApplicationController
 
   def update
     # your code codes here
+    @user = User.find(params[:id])
+    #@post = current_user.posts.find(params[:id])
+    if @user.update(user_params)
+      redirect_to root_path, notice: 'User successfully updated'
+    else
+      render action: 'edit'
+    end
+
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   private

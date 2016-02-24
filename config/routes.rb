@@ -1,9 +1,10 @@
 FacebookLite::Application.routes.draw do
-  resources :users, only: [:new, :create, :show, :index] do
+  resources :users, only: [:new, :create, :show, :index, :edit] do
     resources :posts, only: [:index, :create, :edit, :update]
   end
 
   resources :posts, only: [:edit, :update, :destroy]
+  resources :users, only: [:edit, :update, :destroy]
 
   get '/login', to: 'sessions#new', as: :login
   get '/session', to: redirect('/login')
