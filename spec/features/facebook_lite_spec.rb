@@ -6,14 +6,14 @@ RSpec.feature 'Facebook Lite', type: :feature do
   #
 
   scenario 'fix the welcome page' do
-    skip 'remove me to start'
+    #skip 'remove me to start'
 
     visit root_path
     expect(page.status_code).to eq 200
   end
 
   scenario 'fix unnecessary authentication' do
-    skip 'remove me if you can'
+    #skip 'remove me if you can'
 
     visit root_path
     expect(page).to_not have_content 'Y U NO authenticate?'

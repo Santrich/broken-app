@@ -1,12 +1,13 @@
 class WelcomeController < ApplicationController
   skip_before_filter :require_login, only: :home
+  #skip_before_filter only: :home
 
-  # def index # original definition
   def index
-    @posts = Post.includes(:user)
-    # @posts = User.find(params[:user_id]).posts # a call from posts_controller.rb
+  	#binding.pry
+  	@posts = Post.includes(:user)
   rescue
+  	binding.pry
     # this should not happen...
-    nil
+  	nil
   end
 end
