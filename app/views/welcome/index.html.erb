@@ -6,7 +6,6 @@
 </div>
 
 <div class="col-md-6 alert alert-info">
-  <%= render @posts %>
   <% if logged_in? %>
     <div class="row">
       <h4>What's up <%= current_user.name %>?</h4>
@@ -14,7 +13,6 @@
     </div>
       <%= render 'posts/form' %>
   <% else %>
-    <h4>Posts by all the people</h4>
-    <!--<%= render 'sessions/form' %>-->
+    <%= render 'sessions/form' %>
   <% end %>
 </div>
