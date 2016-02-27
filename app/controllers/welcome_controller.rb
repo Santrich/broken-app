@@ -3,10 +3,9 @@ class WelcomeController < ApplicationController
   #skip_before_filter only: :home
 
   def index
-  	#binding.pry
   	@posts = Post.includes(:user)
   rescue
-  	binding.pry
+  	#binding.pry
     # this should not happen...
   	nil
   end
