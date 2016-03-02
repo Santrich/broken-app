@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   private
 
   def not_authenticated
-    redirect_to [:new, :session], alert: 'You are not authenticated'
+    redirect_to [:new, :session], alert: 'Y U NO authenticate?'
   end
 
 end
