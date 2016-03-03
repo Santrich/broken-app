@@ -93,4 +93,15 @@ RSpec.feature 'Facebook Lite', type: :feature do
     expect(page).to have_content('Post successfully updated')
     expect(page).to have_content('App is fixed now!')
   end
+
+  scenario 'fix Edit my profile' do
+    #skip 'remove me if you can'
+
+    laura = User.create!(name: 'Laura', email: 'laura@nowhere.com', password: '123456')
+    laura.posts.create(content: 'This app is almost fine!')
+    form_login laura
+    expect(page).to have_content 'Edit my profile'
+    click_on 'Edit my profile'
+    expect(page).to have_content 'Edit my profile' && 'Edit your profile!'
+  end
 end

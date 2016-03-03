@@ -40,7 +40,6 @@
               <% if logged_in? %>
                 <li><%= link_to 'Logout', :logout, method: :delete %></li>
                 <li class="<%= 'active' if current_page?(edit_user_path(current_user)) %>"><%= link_to "Edit my profile", edit_user_path(current_user) %></li>
-
               <% end %>
             </ul>
           </div><!--/.nav-collapse -->
