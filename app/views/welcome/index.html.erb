@@ -10,6 +10,9 @@
     <div class="row">
       <h4>What's up <%= current_user.name %>?</h4>
     </div>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
     <%= render 'posts/form' %>
   <% else %>
     <%= render 'sessions/form' %>
