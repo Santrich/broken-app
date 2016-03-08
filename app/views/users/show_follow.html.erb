@@ -10,7 +10,7 @@
       <% if @users.any? %>
         <div class="user_avatars">
           <% @users.each do |user| %>
-            <%= link_to gravatar_for(user, size: 30), user %>
+            <%= @user.name %>
           <% end %>
         </div>
       <% end %>
@@ -20,9 +20,19 @@
     <h3><%= @title %></h3>
     <% if @users.any? %>
       <ul class="users follow">
-        <%= render @users %>
+        <table class="table table-striped">
+          <tbody>
+            <% @users.each do |user| %>
+            <tr>
+              <td>
+                <%= image_tag user.avatar, width: 50, height: 50 %> &nbsp;
+                <strong><%= link_to user.name, user %></strong>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
       </ul>
-      <%= will_paginate %>
     <% end %>
   </div>
 </div>
