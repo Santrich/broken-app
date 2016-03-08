@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :following, :followers]
   skip_before_filter :require_login, only: [:new, :create]
+
+  #before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
+   #                                     :following, :followers]
+
 
   def show
   end
@@ -40,6 +44,20 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
+
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following
+    render 'show_follow'
+end
+
+def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers
+    render 'show_follow'
+end
 
   private
 
