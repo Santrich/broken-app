@@ -102,6 +102,6 @@ RSpec.feature 'Facebook Lite', type: :feature do
     form_login laura
     expect(page).to have_content 'Edit my profile'
     click_on 'Edit my profile'
-    expect(page).to have_content 'Edit my profile' && 'Edit your FANCY profile!'
+    expect(page).to have_content 'Edit your FANCY profile!'
   end
 end
